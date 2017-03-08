@@ -1,8 +1,9 @@
-from bottle import route, run, template
+from flask import Flask
+app = Flask(__name__)
 
-@route('/hello/<name>')
-def index(name):
-    return template('<b>Hello {{name}}</b>!', name=name)
+@app.route("/")
+def hello():
+    return "Hello World!"
 
-run(host='localhost', port=8080)
- 
+if __name__ == "__main__":
+    app.run()
